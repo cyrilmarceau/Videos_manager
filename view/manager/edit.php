@@ -15,20 +15,20 @@
         <div class="form-group">
             <label for="exempleFormControlInput2">Type</label>
             <select class="form-control" name="edit_type">
-                <option value="serie">Serie</option>
-                <option value="film">Film</option>
+                <option <?= $data['type'] === 'serie' ? 'selected' : null ?> value="serie">Serie</option>
+                <option <?= $data['type'] === 'film' ? 'selected' : null ?> value="film">Film</option>
             </select>
         </div>
 
         <div class="form-group">
             <label for="exempleFormControlInput2">Catégorie</label>
             <select class="form-control" name="edit_category">
-                <option value="action">Action</option>
-                <option value="anime">Animé</option>
-                <option value="comedie">Comédie</option>
-                <option value="documentaire">Documentaire</option>
-                <option value="policer">Policier</option>
-                <option value="horreur">horreur</option>
+                <option <?= $data['category'] === 'action' ? 'selected' : null ?> value="action">Action</option>
+                <option <?= $data['category'] === 'anime' ? 'selected' : null ?> value="anime">Animé</option>
+                <option <?= $data['category'] === 'comedie' ? 'selected' : null ?> value="comedie">Comédie</option>
+                <option <?= $data['category'] === 'documentaire' ? 'selected' : null ?> value="documentaire">Documentaire</option>
+                <option <?= $data['category'] === 'policer' ? 'selected' : null ?> value="policer">Policier</option>
+                <option <?= $data['category'] === 'horreur' ? 'selected' : null ?> value="horreur">horreur</option>
             </select>
         </div>
 
