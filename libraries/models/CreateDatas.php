@@ -12,19 +12,21 @@
          * @param  mixed $session_user_id
          * @return bool
          */
-        public function insertDatasFromCreateForm(string $name_input, string $url_input, string $category_input, string $type_input, string $session_user_id): bool
+        public function insertDatasFromCreateForm(string $name_input, string $url_input, string $category_input, string $type_input, string $timing_input, string $session_user_id): bool
         {
             $query = $this->pdo->prepare("INSERT INTO videos SET
             name = :name,
             url = :url,
             category = :category,
             type = :type,
+            timing = :timing,
             id_user = :id_user");
             $query->execute([
                 'name' => $name_input,
                 'url'  => $url_input,
                 'category' => $category_input,
                 'type' => $type_input,
+                'timing' => $timing_input,
                 'id_user' => $session_user_id
             ]);
             if($query->rowCount() === 1) return true;

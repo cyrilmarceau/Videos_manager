@@ -17,10 +17,10 @@
             <div id="<?= 'id' . $data['id'] ?>" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
-                    <li class="list-group-item"> URL:
-                            <a href="<?= $data['url'] ?>">
-                                <?= $data['url'] ?>
-                            </a>
+                        <li class="list-group-item"> URL:
+                                <a href="<?= $data['url'] ?>">
+                                    <?= $data['url'] ?>
+                                </a>
                         </li>
                         <li class="list-group-item">Catégorie: <?= $data['category'] ?></li>
                     </ul>

@@ -45,9 +45,9 @@
                 }
 
                 $id = $_GET['id'];
-                $table = $_GET['type'];
+                $timing_input = $_POST['timing'];
 
-                if($this->model->updateDatasFromEditForm($name_input, $url_input, $category_input, $type_input, $id)){
+                if($this->model->updateDatasFromEditForm($name_input, $url_input, $category_input, $type_input, $timing_input, $id)){
                     \Http::redirect("index.php?controller=home&task=renderAll");
                 }
             }

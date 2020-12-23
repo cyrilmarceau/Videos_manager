@@ -39,6 +39,7 @@
                 $type_input = $_POST['manage_type'];
             }
            
+            $timing_input = $_POST['timing'];
 
             if (!$name_input || !$url_input || !$category_input || !$type_input) {
                 die('Il y a une erreur dans votre formulaire');
@@ -48,8 +49,7 @@
                 $session_user_id = $value['id'];
             }
 
-            // Send datas to the model
-            if($this->model->insertDatasFromCreateForm($name_input, $url_input, $category_input, $type_input, $session_user_id)){
+            if($this->model->insertDatasFromCreateForm($name_input, $url_input, $category_input, $type_input, $timing_input, $session_user_id)){
                 \Http::redirect("index.php?controller=home&task=renderAll");
             }
         }
