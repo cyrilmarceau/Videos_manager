@@ -14,7 +14,7 @@
         }
 
         
-        public function getIdUser(): int
+        public function getIdUser()
         {
             $query = "SELECT id FROM users";
             $results = $this->pdo->query($query);
@@ -27,15 +27,24 @@
          * Get dynamic datas from a table
          * @param  mixed $table
          * @return array
+         */        
+        /**
+         * getTable
+         *
+         * @param  mixed $category
+         * @param  mixed $orderByType
+         * @return array
          */
-        public function getTable(?string $order = ""): array
+        public function getTable(?string $category = "", ?string $orderByType= ""): array
         {
             foreach($_SESSION as $value){
                 $id = $value['id'];
             }
             $sql = "SELECT {$this->name} FROM {$this->table} WHERE id_user = $id";
 
-            if($order) $sql .= " ORDER BY category $order";
+            if($category) $sql .= " AND category = '$category'";
+            if($orderByType) $sql .= " ORDER BY type $orderByType";
+
             $resultats = $this->pdo->query($sql);
             $datas = $resultats->fetchAll();
     

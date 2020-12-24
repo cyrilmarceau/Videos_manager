@@ -25,7 +25,7 @@
         <option value="anime">Animé</option>
         <option value="comedie">Comédie</option>
         <option value="documentaire">Documentaire</option>
-        <option value="policer">Policier</option>
+        <option value="policier">Policier</option>
         <option value="horreur">horreur</option>
     </select>
   </div>
