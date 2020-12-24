@@ -1,9 +1,22 @@
-<h1>Gestionnaire de séries / films</h1>
+<h1>Gestionnaire de vidéo</h1>
 
 <a href="index.php?controller=manager&task=renderAll">Manager mes informations</a>
 
-
-<div id="accordion">
+<table class="table table-striped">
+    <thead>
+        <tr>
+        <th scope="col"></th>
+        <th scope="col">
+            <th scope="col">
+                <a href="index.php?controller=home&task=renderBy&orderBy=asc"><i class="fas fa-arrow-up"></i></a>
+                <a href="index.php?controller=home&task=renderBy&orderBy=desc"><i class="fas fa-arrow-down"></i></a></th>
+        </th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        </tr>
+    </thead>
+</table>
+<div class="my-4" id="accordion">
     <?php foreach($datas as $data): ?>
         <div class="card">
             <div class="card-header" id="headingOne">

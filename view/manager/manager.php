@@ -39,3 +39,5 @@
 
   </tbody>
 </table>
+
+<a href="index.php?controller=home&task=renderAll">Voir toute mes vidéos</a>

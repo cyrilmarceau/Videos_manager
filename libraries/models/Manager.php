@@ -4,10 +4,12 @@
     class Manager extends Model
     {
 
-        
+        protected $table = 'videos';
+        protected $name = '*';
+
         public function getVideos(): array
         {
-            $videos = $this->getTable('videos');
+            $videos = $this->getTable();
             return $videos;
         }
 
