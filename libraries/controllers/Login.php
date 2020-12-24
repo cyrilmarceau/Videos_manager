@@ -38,10 +38,11 @@
                 die('Il y a des champs vide dans votre formulaire');
             }
                 
-            // Send datas to the model
-            if($this->model->connection($email_input, $pass_input)){
-                \Http::redirect("index.php?controller=home&task=renderAll");
-            }
+            if (isset($_POST['submit'])) { 
+                if($this->model->connection($email_input, $pass_input)){
+                    \Http::redirect("index.php?controller=home&task=renderAll");
+                }
+            } 
 
         }
     }

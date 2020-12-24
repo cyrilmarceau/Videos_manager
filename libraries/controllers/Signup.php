@@ -56,12 +56,12 @@
 
             if (!$first_name_input || !$email_input || !$last_name_input || !$pseudo_input || !$pass_input) {
                 die('Il y a une erreur dans votre formulaire');
-            }
-                
-            // Send datas to the model
-            $this->model->insert($first_name_input, $last_name_input, $email_input, $pseudo_input, $pass_input);
+            }            
 
-            \Http::redirect("index.php?controller=login&task=showForm");
+            if (isset($_POST['submit'])) { 
+                $this->model->insert($first_name_input, $last_name_input, $email_input, $pseudo_input, $pass_input);
+                \Http::redirect("index.php?controller=login&task=showForm");
+            } 
 
         }
     }

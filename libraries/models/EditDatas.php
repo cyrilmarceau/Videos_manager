@@ -29,14 +29,16 @@
          * @param  mixed $id
          * @return void
          */
-        public function updateDatasFromEditForm(string $name_input, string $url_input, string $category_input, string $type_input, string $timing_input, int $id)
+        public function updateDatasFromEditForm(string $name_input, string $url_input, string $category_input, string $type_input, string $timing_input, int $season_input, int $episode_input, int $id)
         {
             $query = $this->pdo->prepare("UPDATE videos SET
             name = :name,
             url = :url,
             category = :category,
             type = :type,
-            timing = :timing
+            timing = :timing,
+            seasons = :seasons,
+            episodes = :episodes
             WHERE id = :id");
 
             $query->execute([
@@ -45,6 +47,8 @@
                 'category' => $category_input,
                 'type' => $type_input,
                 'timing' => $timing_input,
+                'seasons' => $season_input,
+                'episodes' => $episode_input,
                 'id' => $id
             ]);
             if($query->rowCount() === 1) return true;

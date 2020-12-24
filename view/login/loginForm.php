@@ -11,6 +11,6 @@
   </div>
 
   <div class="form-group">
-    <input type="submit" class="form-control" value="Se connecter">
+    <input type="submit" class="form-control" name="submit" value="Se connecter">
   </div>
 </form>

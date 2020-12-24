@@ -1,8 +1,8 @@
 <?php
-        namespace Controllers;
+    namespace Controllers;
 
-        class CreateDatas extends Controller
-        {
+    class CreateDatas extends Controller
+    {
 
         protected $modelName = \Models\CreateDatas::class;
 
@@ -15,7 +15,7 @@
         {
             $this->render('manager', 'create');
         }
-     
+    
         /**
          * getDatasFormCreate:
          * Get the information from form showCreateForm()
@@ -38,8 +38,11 @@
             if (!empty($_POST['manage_type'])) {
                 $type_input = $_POST['manage_type'];
             }
-           
-            $timing_input = $_POST['timing'];
+        
+            $timing_input = $_POST['manage_timing'];
+            $season_input = $_POST['manage_seasons'];
+            $episode_input = $_POST['manage_episodes'];
+
 
             if (!$name_input || !$url_input || !$category_input || !$type_input) {
                 die('Il y a une erreur dans votre formulaire');
@@ -49,9 +52,21 @@
                 $session_user_id = $value['id'];
             }
 
-            if($this->model->insertDatasFromCreateForm($name_input, $url_input, $category_input, $type_input, $timing_input, $session_user_id)){
-                \Http::redirect("index.php?controller=home&task=renderAll");
-            }
+            if (isset($_POST['submit'])) { 
+                if($this->model->insertDatasFromCreateForm(
+                    $name_input,
+                    $url_input,
+                    $category_input,
+                    $type_input,
+                    $timing_input,
+                    $season_input,
+                    $episode_input,
+                    $session_user_id
+                )){
+                    \Http::redirect("index.php?controller=home&task=renderAll");
+                }
+            } 
+
         }
-        }
+    }
 ?>

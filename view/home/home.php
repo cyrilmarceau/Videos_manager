@@ -23,6 +23,7 @@
                                 </a>
                         </li>
                         <li class="list-group-item">Catégorie: <?= $data['category'] ?></li>
+                        <li class="list-group-item">Timing: <?= $data['timing'] ?></li>
                     </ul>
                 </div>
             </div>

@@ -36,34 +36,52 @@
 
             <div class="group d-flex align-items-center">
                 <label class="my-0 mr-2 w-25" for="start">A commencer</label>
-                <input type="radio" value="start" <?= $data['timing'] === 'start' ? 'checked' : null ?> id="start" name="timing">
+                <input type="radio" value="start" <?= $data['timing'] === 'start' ? 'checked' : null ?> id="start" name="edit_timing">
             </div>
             
 
             <div class="group d-flex align-items-center">
                 <label class="my-0 mr-2 w-25" for="in_progress">En cours</label>
-                <input type="radio" value="in_progress" <?= $data['timing'] === 'in_progress' ? 'checked' : null ?> id="in_progress" name="timing">
+                <input type="radio" value="in_progress" <?= $data['timing'] === 'in_progress' ? 'checked' : null ?> id="in_progress" name="edit_timing">
             </div>
 
             <div class="group d-flex align-items-center">
                 <label class="my-0 mr-2 w-25" for="on_break">En Pause</label>
-                <input type="radio" value="on_break" <?= $data['timing'] === 'on_break' ? 'checked' : null ?> id="on_break" name="timing">
+                <input type="radio" value="on_break" <?= $data['timing'] === 'on_break' ? 'checked' : null ?> id="on_break" name="edit_timing">
             </div>
 
             <div class="group d-flex align-items-center">
                 <label class="my-0 mr-2 w-25" for="finish">Terminé</label>
-                <input type="radio" value="finish" <?= $data['timing'] === 'finish' ? 'checked' : null ?> id="finish" name="timing">
+                <input type="radio" value="finish" <?= $data['timing'] === 'finish' ? 'checked' : null ?> id="finish" name="edit_timing">
             </div>
 
             <div class="group d-flex align-items-center">
                 <label class="my-0 mr-2 w-25" for="cancel">Annulé</label>
-                <input type="radio" value="cancel" <?= $data['timing'] === 'cancel' ? 'checked' : null ?> id="cancel" name="timing">
+                <input type="radio" value="cancel" <?= $data['timing'] === 'cancel' ? 'checked' : null ?> id="cancel" name="edit_timing">
             </div>
 
         </div>
 
         <div class="form-group">
-            <input type="submit" class="form-control" value="Editer">
+            <label for="seasons">Saison</label>
+            <select class="form-control" id="seasons" name="edit_season">
+            <?php for($i = 1; $i < 11; $i++): ?>
+                <option <?= $data['seasons'] == $i ? 'selected' : null ?> value="<?= $i ?>"> Saison <?= $i ?> </option>
+            <?php endfor; ?>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="episodes">Episode</label>
+            <select class="form-control" id="episodes" name="edit_episode">
+            <?php for($i = 1; $i < 51; $i++): ?>
+                <option <?= $data['episodes'] == $i ? 'selected' : null ?> value="<?= $i ?>"> Episodes <?= $i ?> </option>
+            <?php endfor; ?>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input type="submit" class="form-control" name="submit" value="Editer">
         </div>
     </form>
 <?php endforeach; ?>
