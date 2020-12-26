@@ -13,8 +13,9 @@ namespace Controllers;
          */
         public function renderAll(): void
         {
-            $datas = $this->model->getTable();            
+            $datas = $this->model->getTable();
             $this->render('home', 'home', compact('datas'));
+
         }
 
         /**
@@ -28,7 +29,7 @@ namespace Controllers;
             if(isset($_POST['filter_submit'])){
                 $filter_by_category = $_POST['filter_by_category'];
             }
-            $datas = $this->model->getTable($filter_by_category); 
+            $datas = $this->model->getTable($filter_by_category);
 
             $this->render('home', 'home', compact('datas'));
         }

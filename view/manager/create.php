@@ -12,14 +12,14 @@
 
   <div class="form-group">
     <label for="exempleFormControlInput2">Type</label>
-    <select class="form-control" name="manage_type">
+    <select class="form-control manage_type" name="manage_type">
         <option value="serie">Série</option>
         <option value="film">Film</option>
     </select>
   </div>
 
   <div class="form-group">
-    <label for="exempleFormControlInput2">Catégory</label>
+    <label for="exempleFormControlInput2">Catégorie</label>
     <select class="form-control" name="manage_category">
         <option value="action">Action</option>
         <option value="anime">Animé</option>
@@ -58,7 +58,7 @@
     </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group data_serie">
     <label for="seasons">Saison</label>
     <select class="form-control" id="seasons" name="manage_seasons">
       <?php for($i = 1; $i < 11; $i++): ?>
@@ -67,7 +67,7 @@
     </select>
   </div>
 
-  <div class="form-group">
+  <div class="form-group data_serie">
     <label for="episodes">Episode</label>
     <select class="form-control" id="episodes" name="manage_episodes">
       <?php for($i = 1; $i < 51; $i++): ?>
@@ -80,3 +80,17 @@
     <input type="submit" class="form-control" name="submit" value="Valider">
   </div>
 </form>
+
+<script>
+  document.querySelector('.manage_type').addEventListener('change', (e) => {
+    
+      document.querySelectorAll('.data_serie').forEach(element => {
+        if(e.target.value === 'film'){
+          element.classList.add('d-none');
+        } else {
+          element.classList.remove('d-none');
+        }
+      });
+    
+  })
+</script>
