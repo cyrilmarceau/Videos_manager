@@ -40,17 +40,34 @@
                     $type_input = htmlspecialchars($_POST['edit_type']);
                 }
 
+                if (!empty($_POST['edit_timing'])) {
+                    $timing_input = $_POST['edit_timing'];
+                }
+
+                if (!empty($_POST['edit_season'])) {
+                    $season_input = $_POST['edit_season'];
+                } else {
+                    $season_input = 0;
+                }
+
+                if (!empty($_POST['edit_episode'])) {
+                    $episode_input = $_POST['edit_episode'];
+                } else {
+                    $episode_input = 0;
+                }
+
                 if (!$name_input || !$url_input || !$type_input || !$category_input) {
                     die('Il y a une erreur dans votre formulaire');
                 }
 
                 $id = htmlentities($_GET['id']);
-                $timing_input = $_POST['edit_timing'];
+              
 
-                $season_input = $_POST['edit_season'];
-                $episode_input = $_POST['edit_episode'];
+                
+                
 
-                if (isset($_POST['submit'])) { 
+                if (isset($_POST['submit'])) {
+                    var_dump($_POST);
                     if($this->model->updateDatasFromEditForm($name_input, $url_input, $category_input, $type_input, $timing_input, $season_input, $episode_input, $id)){
                         \Http::redirect("index.php?controller=home&task=renderAll");
                     }
