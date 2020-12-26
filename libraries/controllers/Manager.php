@@ -25,7 +25,7 @@ namespace Controllers;
          */
         public function delete()
         {
-            $id = $_GET['id'];
+            $id = htmlentities($_GET['id']);
 
             $this->model->delete($id);
             \Http::redirect("index.php?controller=home&task=renderAll");

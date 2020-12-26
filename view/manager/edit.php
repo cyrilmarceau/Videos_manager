@@ -62,23 +62,26 @@
 
         </div>
 
-        <div class="form-group">
-            <label for="seasons">Saison</label>
-            <select class="form-control" id="seasons" name="edit_season">
-            <?php for($i = 1; $i < 11; $i++): ?>
-                <option <?= $data['seasons'] == $i ? 'selected' : null ?> value="<?= $i ?>"> Saison <?= $i ?> </option>
-            <?php endfor; ?>
-            </select>
-        </div>
+        <?php if($data['type'] === 'serie'): ?>
+            <div class="form-group">
+                <label for="seasons">Saison</label>
+                <select class="form-control" id="seasons" name="edit_season">
+                <?php for($i = 1; $i < 11; $i++): ?>
+                    <option <?= $data['seasons'] == $i ? 'selected' : null ?> value="<?= $i ?>"> Saison <?= $i ?> </option>
+                <?php endfor; ?>
+                </select>
+            </div>
 
-        <div class="form-group">
-            <label for="episodes">Episode</label>
-            <select class="form-control" id="episodes" name="edit_episode">
-            <?php for($i = 1; $i < 51; $i++): ?>
-                <option <?= $data['episodes'] == $i ? 'selected' : null ?> value="<?= $i ?>"> Episodes <?= $i ?> </option>
-            <?php endfor; ?>
-            </select>
-        </div>
+            <div class="form-group">
+                <label for="episodes">Episode</label>
+                <select class="form-control" id="episodes" name="edit_episode">
+                <?php for($i = 1; $i < 51; $i++): ?>
+                    <option <?= $data['episodes'] == $i ? 'selected' : null ?> value="<?= $i ?>"> Episodes <?= $i ?> </option>
+                <?php endfor; ?>
+                </select>
+            </div>
+
+        <?php endif; ?>
 
         <div class="form-group">
             <input type="submit" class="form-control" name="submit" value="Editer">

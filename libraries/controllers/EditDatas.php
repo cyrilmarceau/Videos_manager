@@ -11,7 +11,7 @@
              */
             public function showFormEdit(): void
             {
-                $id = $_GET['id'];
+                $id = htmlentities($_GET['id']);
 
                 $datas = $this->model->getById($id);
                 $this->render('manager', 'edit', compact('datas'));
@@ -44,8 +44,9 @@
                     die('Il y a une erreur dans votre formulaire');
                 }
 
-                $id = $_GET['id'];
+                $id = htmlentities($_GET['id']);
                 $timing_input = $_POST['edit_timing'];
+
                 $season_input = $_POST['edit_season'];
                 $episode_input = $_POST['edit_episode'];
 

@@ -1,3 +1,7 @@
+<?php
+    $start = '';
+?>
+
 <h1>Gestionnaire de vidéo</h1>
 
 <a href="index.php?controller=manager&task=renderAll">Manager mes informations</a>
@@ -7,11 +11,11 @@
         <tr>
         <th scope="col">Filtres:</th>
             <th scope="col">
-                <a href="index.php?controller=home&task=renderBy&orderBy=asc"><i class="fas fa-arrow-up"></i></a>
-                <a href="index.php?controller=home&task=renderBy&orderBy=desc"><i class="fas fa-arrow-down"></i></a>
+                <!-- <a href="index.php?controller=home&task=renderBy&orderBy=asc"><i class="fas fa-arrow-up"></i></a>
+                <a href="index.php?controller=home&task=renderBy&orderBy=desc"><i class="fas fa-arrow-down"></i></a> -->
             </th>
         <th scope="col">
-            <form action="index.php?controller=home&task=renderBy&orderBy=asc" method="POST">
+            <form action="index.php?controller=home&task=renderBy" method="POST">
                 <select name="filter_by_category">
                     <option value="action">Action</option>
                     <option value="anime">Animé</option>
@@ -50,7 +54,9 @@
                                 </a>
                         </li>
                         <li class="list-group-item">Catégorie: <?= $data['category'] ?></li>
-                        <li class="list-group-item">Timing: <?= $data['timing'] ?></li>
+                        <li class="list-group-item">Timing: <?= $data['timing'] ?>
+                            
+                        </li>
                     </ul>
                 </div>
             </div>
