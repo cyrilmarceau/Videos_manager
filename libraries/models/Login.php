@@ -16,12 +16,12 @@
             $query = $this->pdo->prepare('SELECT * FROM users WHERE email = :emailByParameter');
             $query->execute([
                 'emailByParameter' => $emailByParameter,
-                ]);
+            ]);
             
             $row = $query->fetch();
             $password = password_verify($passByParameter, $row['pass']);
             if($password) {
-                $_SESSION['id'] = $this->getIdUser();
+                $_SESSION['id'] = $this->getIdUser($emailByParameter);
                 return true;
             } else {
                 return false;

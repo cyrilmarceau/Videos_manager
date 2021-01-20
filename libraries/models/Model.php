@@ -14,11 +14,13 @@
         }
 
         
-        public function getIdUser()
+        public function getIdUser(string $email)
         {
-            $query = "SELECT id FROM users";
-            $results = $this->pdo->query($query);
-            $id = $results->fetch();
+            $query = $this->pdo->prepare("SELECT id FROM users WHERE email =:email");
+            $query->execute([
+                'email' => $email
+            ]);
+            $id = $query->fetch();
             return $id;
         }
 

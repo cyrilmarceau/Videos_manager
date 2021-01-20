@@ -67,7 +67,6 @@
                 
 
                 if (isset($_POST['submit'])) {
-                    var_dump($_POST);
                     if($this->model->updateDatasFromEditForm($name_input, $url_input, $category_input, $type_input, $timing_input, $season_input, $episode_input, $id)){
                         \Http::redirect("index.php?controller=home&task=renderAll");
                     }

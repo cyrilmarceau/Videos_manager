@@ -30,5 +30,11 @@ namespace Controllers;
             $this->model->delete($id);
             \Http::redirect("index.php?controller=home&task=renderAll");
         }
+
+        public function destroySession(): void
+        {
+            session_destroy();
+            \Http::redirect("index.php?controller=login&task=showForm");
+        }
     }
 ?>

@@ -4,7 +4,11 @@
 ?>
 
 
-<a class="btn btn-outline-primary m-4" href="index.php?controller=manager&task=renderAll">Manager mes informations</a>
+<div>
+    <a class="btn btn-outline-primary m-4" href="index.php?controller=manager&task=renderAll">Manager mes informations</a>
+    <a class="btn btn-outline-primary m-4" href="index.php?controller=manager&task=destroySession">Se déconnecter</a>
+</div>
+
 
 <table class="table table-striped">
     <thead>
@@ -30,7 +34,7 @@
             </form>
         </th>
         <th class="align-middle" scope="col">
-            <a class="btn btn-outline-secondary" href="index.php?controller=home&task=renderAll">Afficher toute les vidéos</a>
+            <a class="btn btn-outline-secondary" href="index.php?controller=home&task=renderAll">Afficher toutes les catégories</a>
         </th>
         </tr>
     </thead>
@@ -49,13 +53,15 @@
             <div id="<?= 'id' . $data['id'] ?>" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item">Genre: <?= $data['category'] ?></li>
+                        <li class="list-group-item">Type: <?= $data['type'] ?></li>
+                        
                         <li class="list-group-item"> URL:
                                 <a href="<?= $data['url'] ?>">
                                     <?= $data['url'] ?>
                                 </a>
                         </li>
-                        <li class="list-group-item">Catégorie: <?= $data['category'] ?></li>
-
 
                             <?php if($data['type'] == 'serie'): ?>
                                 <li class="list-group-item">

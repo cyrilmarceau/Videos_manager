@@ -6,11 +6,5 @@
 
         protected $table = 'videos';
         protected $name = '*';
-        
-        // public function getVideos(): array {
-        //     $series = $this->getTable();
-        //     return $series;
-        // }
-
     }
 ?>

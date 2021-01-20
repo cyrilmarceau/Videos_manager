@@ -27,7 +27,7 @@
                 <option <?= $data['category'] === 'anime' ? 'selected' : null ?> value="anime">Animé</option>
                 <option <?= $data['category'] === 'comedie' ? 'selected' : null ?> value="comedie">Comédie</option>
                 <option <?= $data['category'] === 'documentaire' ? 'selected' : null ?> value="documentaire">Documentaire</option>
-                <option <?= $data['category'] === 'policier' ? 'selected' : null ?> value="policer">Policier</option>
+                <option <?= $data['category'] === 'policier' ? 'selected' : null ?> value="policier">Policier</option>
                 <option <?= $data['category'] === 'horreur' ? 'selected' : null ?> value="horreur">horreur</option>
             </select>
         </div>
