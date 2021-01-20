@@ -14,14 +14,17 @@
         }
 
         
-        public function getIdUser(string $email)
+        public function getIdUser(string $email): array
         {
-            $query = $this->pdo->prepare("SELECT id FROM users WHERE email =:email");
+            $query = $this->pdo->prepare("SELECT * FROM users WHERE email = :email");
             $query->execute([
                 'email' => $email
             ]);
-            $id = $query->fetch();
-            return $id;
+            $datas = $query->fetchAll();
+            foreach($datas as $data){
+                return $data;
+            }
+            
         }
 
         /**
@@ -33,11 +36,9 @@
          */
         public function getTable(?string $category = "", ?string $timing = ""): array
         {
-            foreach($_SESSION as $value){
-                $id = $value['id'];
-            }
-            $sql = "SELECT {$this->name} FROM {$this->table} WHERE id_user = $id";
+            $id = $_SESSION['id'];
 
+            $sql = "SELECT {$this->name} FROM {$this->table} WHERE id_user = $id";
             if($category) $sql .= " AND category = '$category'";
             if($timing) $sql .= " AND timing = '$timing'";
 

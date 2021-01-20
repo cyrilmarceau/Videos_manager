@@ -19,7 +19,7 @@
                 session_start();
             }
 
-            
+            $this->render(null, 'header');
         }
         
         /**
@@ -30,7 +30,7 @@
          * @param  mixed $variables
          * @return string
          */
-        public function render(string $folder, string $view, array $variables = []): string
+        public function render(?string $folder = '', string $view, ?array $variables = []): string
         {
             extract($variables);
             //folder, file

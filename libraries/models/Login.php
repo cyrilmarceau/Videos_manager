@@ -21,7 +21,9 @@
             $row = $query->fetch();
             $password = password_verify($passByParameter, $row['pass']);
             if($password) {
-                $_SESSION['id'] = $this->getIdUser($emailByParameter);
+                $userDatas = $this->getIdUser($emailByParameter);
+                $_SESSION['id'] = $userDatas['id'];
+                $_SESSION['pseudo'] = $userDatas['pseudo'];
                 return true;
             } else {
                 return false;
