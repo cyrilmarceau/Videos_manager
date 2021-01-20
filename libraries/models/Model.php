@@ -26,18 +26,12 @@
 
         /**
          * getTable
-         * Get dynamic datas from a table
-         * @param  mixed $table
-         * @return array
-         */        
-        /**
-         * getTable
          *
          * @param  mixed $category
          * @param  mixed $orderByType
          * @return array
          */
-        public function getTable(?string $category = ""): array
+        public function getTable(?string $category = "", ?string $timing = ""): array
         {
             foreach($_SESSION as $value){
                 $id = $value['id'];
@@ -45,7 +39,7 @@
             $sql = "SELECT {$this->name} FROM {$this->table} WHERE id_user = $id";
 
             if($category) $sql .= " AND category = '$category'";
-            // if($orderByType) $sql .= " ORDER BY type $orderByType";
+            if($timing) $sql .= " AND timing = '$timing'";
 
             $resultats = $this->pdo->query($sql);
             $datas = $resultats->fetchAll();

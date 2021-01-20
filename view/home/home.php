@@ -14,23 +14,29 @@
     <thead>
         <tr>
         <th class="align-middle text-uppercase" scope="col">Filtres:</th>
-            <!-- <th scope="col"> -->
-                <!-- <a href="index.php?controller=home&task=renderBy&orderBy=asc"><i class="fas fa-arrow-up"></i></a>
-                <a href="index.php?controller=home&task=renderBy&orderBy=desc"><i class="fas fa-arrow-down"></i></a> -->
-            <!-- </th> -->
+
         <th class="align-middle" scope="col">
-            <form class="my-0 d-flex" action="index.php?controller=home&task=renderBy" method="POST">
-                <select class="form-control w-50 mx-4" name="filter_by_category">
-                    <option value="action">Action</option>
-                    <option value="anime">Animé</option>
-                    <option value="comedie">Comédie</option>
-                    <option value="documentaire">Documentaire</option>
-                    <option value="policier">Policier</option>
-                    <option value="horreur">horreur</option>
+            <form id="lol" class="my-0 d-flex" action="index.php?controller=home&task=renderBy" onsubmit="changeURL()" method="POST">
+                <select id="categorie" class="form-control w-50 mx-4" name="filter_by_category">
+                    <option value="choose" selected disabled>Choisissez une catégorie</option>
+                    <option value="action" <?= $_GET['categorie'] === 'action' ? 'selected' : null ?> > Action </option>
+                    <option value="anime" <?= $_GET['categorie'] === 'anime' ? 'selected' : null ?> > Animé</option>
+                    <option value="comedie" <?= $_GET['categorie'] === 'comedie' ? 'selected' : null ?> > Comédie</option>
+                    <option value="documentaire" <?= $_GET['categorie'] === 'documentaire' ? 'selected' : null ?>> Documentaire</option>
+                    <option value="policier" <?= $_GET['categorie'] === 'policier' ? 'selected' : null ?>> Policier</option>
+                    <option value="horreur" <?= $_GET['categorie'] === 'horreur' ? 'selected' : null ?>> Horreur</option>
                 </select>
-                <!-- <input type="text" name="filter_by_name" id=""> -->
+
+                <select id="timing" class="form-control w-50 mx-4" name="filter_by_timing">
+                    <option value="choose" selected disabled>Choisissez un timing</option>
+                    <option value="start" <?= $_GET['timing'] === 'start' ? 'selected' : null ?> >A commencer</option>
+                    <option value="in_progress" <?= $_GET['timing'] === 'in_progress' ? 'selected' : null ?> >En cours</option>
+                    <option value="on_break" <?= $_GET['timing'] === 'on_break' ? 'selected' : null ?> >En pause</option>
+                    <option value="finish" <?= $_GET['timing'] === 'finish' ? 'selected' : null ?> >Terminé</option>
+                    <option value="cancel" <?= $_GET['timing'] === 'cancel' ? 'selected' : null ?> >Annulé</option>
+                </select>
                 
-                <input type="submit" class="btn btn-primary" name="filter_submit" value="Rechercher">
+                <input id="submit" type="submit" class="btn btn-primary" name="filter_submit" value="Rechercher">
             </form>
         </th>
         <th class="align-middle" scope="col">
@@ -99,3 +105,17 @@
         </div>
     <?php endforeach; ?>
 </div>
+
+<script>
+    function changeURL(e){
+        const form = document.querySelector('form');
+
+            if(document.querySelector('#categorie').value !== 'choose'){
+                form.action += `&categorie=${document.querySelector('#categorie').value}`;
+            }
+
+            if(document.querySelector('#timing').value !== 'choose'){
+                form.action += `&timing=${document.querySelector('#timing').value}`;
+            }
+    }
+</script>
