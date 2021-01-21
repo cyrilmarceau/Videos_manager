@@ -50,13 +50,13 @@
             $pass_input = null;
             if (!empty($_POST['pass'])) {
                 $pass_input = password_hash($_POST['pass'], PASSWORD_DEFAULT, ['cost' => 12]);
-                
             }
-           
 
-            if (!$first_name_input || !$email_input || !$last_name_input || !$pseudo_input || !$pass_input) {
-                die('Il y a une erreur dans votre formulaire');
-            }            
+            var_dump($first_name_input, $last_name_input, $email_input, $pseudo_input, $pass_input);
+
+            // if (!$first_name_input || !$email_input || !$last_name_input || !$pseudo_input || !$pass_input) {
+            //     die('Il y a une erreur dans votre formulaire');
+            // }            
 
             if (isset($_POST['submit'])) { 
                 $this->model->insert($first_name_input, $last_name_input, $email_input, $pseudo_input, $pass_input);

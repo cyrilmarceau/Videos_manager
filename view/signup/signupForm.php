@@ -1,32 +1,53 @@
-<form action="index.php?controller=signup&task=insert" method="POST" class="w-25">
+<div class="row m-0 h-100">
 
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Prénom</label>
-    <input type="text" class="form-control" name="first_name" id="exampleFormControlInput1" placeholder="John">
+  <div class="col p-0 text-center d-flex justify-content-center align-items-center display-none">
+    <img src="http://localhost/Videos_manager/images/login.svg" class="w-100">
   </div>
 
-  <div class="form-group">
-    <label for="exempleFormControlInput2">Nom</label>
-    <input type="text" class="form-control" name="last_name" id="exempleFormControlInput2" placeholder="Doe">
-  </div>
+  <div class="col
+    d-flex justify-content-center align-items-center flex-column
+    p-0
+    w-100
+    form-box">
 
-  <div class="form-group">
-    <label for="exempleFormControlInput3">E-mail</label>
-    <input type="email" class="form-control" name="email" id="exempleFormControlInput3" placeholder="john@gmail.com">
-  </div>
+    <form class="w-75" action="index.php?controller=signup&task=insert" method="POST">
 
-  <div class="form-group">
-    <label for="exempleFormControlInput4">Pseudo</label>
-    <input type="text" class="form-control" name="pseudo" id="exempleFormControlInput4" placeholder="John.d">
-  </div>
+    <div class="row">
+      <div class="mb-3 col-6">
+          <label for="exampleFormControlInput1" class="form-label">Prénom</label>
+          <input type="text" class="form-control" name="first_name" placeholder="John" required>
+        </div>
 
-  <div class="form-group">
-    <label for="exempleFormControlInput5">Mot de passe</label>
-    <input type="password" class="form-control" name="pass" id="exempleFormControlInput5" placeholder="Votre mot de passe">
-  </div>
+        <div class="mb-3 col-6">
+          <label for="exampleFormControlInput2" class="form-label">Nom</label>
+          <input type="text" class="form-control" name="last_name" placeholder="Doe" required>
+        </div>
+    </div>
 
-  <div class="form-group">
-    <input type="submit" name="submit" class="form-control" value="S'inscrire">
-    <a href="index.php?controller=login&task=showForm">Se connecter</a>
+    <div class="row">
+      <div class="mb-3 col-6">
+          <label for="exampleFormControlInput3" class="form-label">E-mail</label>
+          <input type="text" class="form-control" name="email" placeholder="john@doe.fr" required>
+        </div>
+
+        <div class="mb-3 col-6">
+          <label for="exampleFormControlInput4" class="form-label">Pseudo</label>
+          <input type="text" class="form-control" name="pseudo" placeholder="John.doe" required>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="mb-3 col-6">
+          <label for="exampleFormControlInput5" class="form-label">Mot de passe</label>
+          <input type="password" class="form-control" name="pass" placeholder="********" required>
+        </div>
+    </div>
+
+      <button type="submit" class="btn btn-lg btn-block mt-3 me-3 form-box__btn-custom" name="submit">S'inscrire</button>
+      <a class="btn btn-lg btn-block mt-3" href="index.php?controller=login&task=showForm">Se connecter</a>
+
+    </form>
+
   </div>
-</form>
+  
+</div>

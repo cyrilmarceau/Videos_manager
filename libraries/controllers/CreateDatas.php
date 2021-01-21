@@ -48,9 +48,9 @@
                 die('Il y a une erreur dans votre formulaire');
             }
 
-            foreach($_SESSION as $value){
-                $session_user_id = $value['id'];
-            }
+  
+
+            $session_user_id = $_SESSION['id'];
 
             if (isset($_POST['submit'])) { 
                 if($this->model->insertDatasFromCreateForm(

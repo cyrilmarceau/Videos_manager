@@ -6,7 +6,7 @@
 
         protected $model;
         protected $modelName;
-        
+
         /**
          * __construct
          * Instantiate model and start session
@@ -33,7 +33,8 @@
         public function render(?string $folder = '', string $view, ?array $variables = []): string
         {
             extract($variables);
-            //folder, file
+            ob_start();
             return require dirname(__DIR__, 2) . '/view/' . $folder . '/' . $view . '.php';
+            ob_get_clean();
         }
     }
